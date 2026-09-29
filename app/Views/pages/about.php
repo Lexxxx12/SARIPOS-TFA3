@@ -12,17 +12,17 @@
 <section class="container section narrow">
     <div class="about-grid">
         <article class="content-card">
-            <h2>Version one</h2>
-            <p>This release focuses on the essentials: a welcoming dashboard and two readable account directories. Customer and staff records currently come from static PHP arrays in their controllers.</p>
-            <p>No database is connected yet. That keeps this first iteration easy to understand while establishing a structure that can grow into a complete point-of-sale system.</p>
+            <h2>TFA3 release</h2>
+            <p>This release adds complete create and edit workflows for customer and user accounts, with server-side validation and clear feedback when a form needs attention.</p>
+            <p>User profile pictures are validated, prepared for display, and stored safely while account data remains organized in MySQL through CodeIgniter models.</p>
         </article>
         <aside class="stack-card">
             <p class="eyebrow">Technology</p>
             <ul>
                 <li><span>Framework</span><strong>CodeIgniter 4</strong></li>
                 <li><span>Language</span><strong>PHP</strong></li>
-                <li><span>Data source</span><strong>Static arrays</strong></li>
-                <li><span>Pages</span><strong>Four</strong></li>
+                <li><span>Data source</span><strong>MySQL</strong></li>
+                <li><span>Forms</span><strong>Validated</strong></li>
             </ul>
         </aside>
     </div>

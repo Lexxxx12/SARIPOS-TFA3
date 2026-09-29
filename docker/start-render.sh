@@ -24,7 +24,7 @@ APP_DB_PASSWORD="$(od -An -N16 -tx1 /dev/urandom | tr -d ' \n')"
 
 mariadb --user=root <<SQL
 CREATE OR REPLACE USER 'saripos_app'@'%' IDENTIFIED BY '${APP_DB_PASSWORD}';
-GRANT SELECT ON saripos.* TO 'saripos_app'@'%';
+GRANT SELECT, INSERT, UPDATE ON saripos.* TO 'saripos_app'@'%';
 FLUSH PRIVILEGES;
 SQL
 

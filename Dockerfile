@@ -2,8 +2,9 @@ FROM php:8.3-cli
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        default-mysql-server git libicu-dev libonig-dev unzip \
-    && docker-php-ext-install intl mbstring mysqli \
+        default-mysql-server git libicu-dev libjpeg62-turbo-dev libonig-dev libpng-dev unzip \
+    && docker-php-ext-configure gd --with-jpeg \
+    && docker-php-ext-install gd intl mbstring mysqli \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

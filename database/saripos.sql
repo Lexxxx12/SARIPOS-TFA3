@@ -1,4 +1,4 @@
--- SariPOS database export for IT0049 TFA2
+-- SariPOS database export for IT0049 TFA3
 CREATE DATABASE IF NOT EXISTS `saripos`
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -27,13 +27,14 @@ CREATE TABLE `users` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `username` VARCHAR(50) NOT NULL UNIQUE,
   `full_name` VARCHAR(100) NOT NULL,
+  `avatar` VARCHAR(255) NULL,
   `created_at` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `users` (`username`, `full_name`, `created_at`) VALUES
-  ('admin.mara', 'Mara Villanueva', '2026-09-01 08:00:00'),
-  ('cashier.joel', 'Joel Navarro', '2026-09-02 08:30:00'),
-  ('manager.ella', 'Ella Bautista', '2026-09-03 09:00:00'),
-  ('cashier.nico', 'Nico Ramos', '2026-09-04 09:30:00'),
-  ('stock.lia', 'Lia Castillo', '2026-09-05 10:00:00'),
-  ('supervisor.sam', 'Samuel Aquino', '2026-09-06 10:30:00');
+INSERT INTO `users` (`username`, `full_name`, `avatar`, `created_at`) VALUES
+  ('admin.mara', 'Mara Villanueva', NULL, '2026-09-01 08:00:00'),
+  ('cashier.joel', 'Joel Navarro', NULL, '2026-09-02 08:30:00'),
+  ('manager.ella', 'Ella Bautista', NULL, '2026-09-03 09:00:00'),
+  ('cashier.nico', 'Nico Ramos', NULL, '2026-09-04 09:30:00'),
+  ('stock.lia', 'Lia Castillo', NULL, '2026-09-05 10:00:00'),
+  ('supervisor.sam', 'Samuel Aquino', NULL, '2026-09-06 10:30:00');

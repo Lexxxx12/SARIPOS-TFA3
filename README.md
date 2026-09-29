@@ -1,15 +1,19 @@
 # SariPOS
 
-**Live application:** [https://saripos.onrender.com](https://saripos.onrender.com)
+**Hosted application:** Add your deployed TFA3 URL here before submission.
 
-A four-page point-of-sale website built with CodeIgniter 4. Customer and user account records are stored in MySQL and retrieved through CodeIgniter models and Query Builder.
+A point-of-sale account management website built with CodeIgniter 4. TFA3 adds validated create and edit forms plus prepared user-avatar uploads while preserving the original SariPOS design.
 
 ## Pages
 
 - `/` — landing page
 - `/about` — project overview
 - `/customers` — customer account directory
+- `/customers/new` — validated new-customer form
+- `/customers/{id}/edit` — pre-filled customer edit form
 - `/users` — staff user directory
+- `/users/new` — validated new-user form
+- `/users/{id}/edit` — pre-filled user edit form with avatar upload
 
 ## Local setup
 
@@ -26,7 +30,13 @@ Open `http://localhost:8080` in a browser. Before starting the app, edit `.env` 
 
 ## Data source
 
-The importable database export is at `database/saripos.sql`. It creates the `saripos` database, the `customers` and `users` tables required by TFA2, and six sample records in each table. `CustomerModel` and `UserModel` retrieve the records used by the account-directory pages.
+The importable database export is at `database/saripos.sql`. It creates the `saripos` database, the `customers` and `users` tables, including the nullable `users.avatar` filename column, and six sample records in each table.
+
+## Validation and uploads
+
+Customer forms require a full name and valid email address. User forms require a unique username and a full name. Invalid submissions return to the form with all validation messages and previously entered values.
+
+On the user edit page, JPG and PNG uploads up to 2 MB are accepted. CodeIgniter prepares a centered 320 × 320 display copy in `public/uploads/avatars/`, and only the randomized filename is stored in the database. The user directory displays `placeholder.svg` when an account has no avatar. Ensure `public/uploads/avatars/` is writable by the web server in deployment.
 
 ## Deployment
 
